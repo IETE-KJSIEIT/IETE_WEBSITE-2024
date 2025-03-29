@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IETE-KJSIT</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-8Vv5lJ+go6voGd+8Nzv0AIl48GpjKiqmPTGe2i5XzuH54pIq8U3X1U6dtbb4VYnp" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/hackathon.css">     <!-- Home Page Stylesheet -->
+    <link rel="stylesheet" href="./css/navbar.css">    <!-- Navbar Stylesheet -->
+    <link rel="stylesheet" href="./css/footer.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+          <a href="./index.html" class="nav-logo"><img src="./assets/logos/IETE-Logo.png" alt="logo"></a>
+          <div class="hamburger" id="hamburger">
+            <span class="line" id="line1"></span>
+            <span class="line" id="line2"></span>
+            <span class="line" id="line3"></span>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./hackathon.html">&lt;Level - Up&gt;</a></li>
+            <li><a href="./events.html">Events</a></li>
+            <li><a href="./teams_2024-25.html">Teams</a></li>
+            <li><a href="./about-us.html">About Us</a></li>
+          </ul>
+        </div>
+    </nav>
+
+    <section class="events">
+        <h1 class="title-box">&lt;Level - Up&gt;</h1>
+    
+    
+        <!--Hackathon Section -->
+        <section class="hackathon-section">
+          <!-- <h2>Hackathon</h2> -->
+          <div class="hackathon-grid">
+            <div class="hackathon-card">
+              <img src="./assets/hackathon.png" alt="Hackathon" />
+            </div>
+            <div class="hackathon-info">
+              <p>Join us for an exciting hackathon challenge where innovation meets execution</p>
+              <p><strong>Date:</strong> 5th & 6th April</p>
+              <p><strong>Venue:</strong> KJSIT Campus</p>
+              <div class="register-btn-container">
+                <a href="https://forms.gle/5H5THDaWDXtRVS4f6" target="_blank" class="hackathon-link">
+                  <button class="register-btn">Register Now</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+        <!-- Timer Section Begins -->
+    
+        <div class="timer-section">
+          <div class="day-section">
+            <div class="day-count count-section" id="remaining-days">00</div>
+            <div class="timer-text text-section">days</div>
+          </div>
+          <div class="colon-section">:</div>
+          <div class="hour-section">
+            <div class="hour-count count-section" id="remaining-hours">00</div>
+            <div class="timer-text text-section">hours</div>
+          </div>
+          <div class="colon-section">:</div>
+          <div class="minute-section">
+            <div class="minute-count count-section" id="remaining-minutes">00</div>
+            <div class="timer-text text-section">minutes</div>
+          </div>
+          <div class="colon-section">:</div>
+          <div class="second-section">
+            <div class="second-count count-section" id="remaining-seconds">00</div>
+            <div class="timer-text text-section">seconds</div>
+          </div>
+        </div>
+    
+        <hr>
+        
+        <div id="event_timeline">
+          <div class="timeline">
+              <h3 class="head">Events Timeline</h3>
+              <div class="container">
+                  <ul>
+                      <li class="zoom">
+                          <h3 class="heading">Arrival & Networking</h3>
+                          <p>Kickstart with participant networking.</p>
+                          <span class="date">9:00 AM</span>
+                          <span class="circle"></span>
+                      </li>
+                      <li class="zoom">
+                          <h3 class="heading">Opening Ceremony</h3>
+                          <p>Welcome speech & judge introductions.</p>
+                          <span class="date">10:00 AM</span>
+                          <span class="circle"></span>
+                      </li>
+                      <li class="zoom">
+                          <h3 class="heading">Problem Statements</h3>
+                          <p>Announcement and Q&A session.</p>
+                          <span class="date">11:00 AM</span>
+                          <span class="circle"></span>
+                      </li>
+                      <li id="space" class="zoom">
+                          <h3 class="heading">Project Development</h3>
+                          <p>Focused coding & project work.</p>
+                          <span class="date">1:00 PM</span>
+                          <span class="circle"></span>
+                      </li>
+                      <li class="zoom">
+                          <h3 class="heading">Dinner Break</h3>
+                          <p>Recharge with a meal.</p>
+                          <span class="date">8:00 PM</span>
+                          <span class="circle"></span>
+                      </li>
+                      <li class="zoom">
+                          <h3 class="heading">Preliminary Round</h3>
+                          <p>Project review & evaluation begins.</p>
+                          <span class="date">9:00 PM</span>
+                          <span class="circle"></span>
+                      </li>
+                      <li class="zoom">
+                          <h3 class="heading">Overnight Work</h3>
+                          <p>Continuous project development.</p>
+                          <span class="date">12:30 AM</span>
+                          <span class="circle"></span>
+                      </li>
+                      <li class="zoom">
+                          <h3 class="heading">Breakfast</h3>
+                          <p>Refuel for the final stretch.</p>
+                          <span class="date">7:00 AM</span>
+                          <span class="circle"></span>
+                      </li>
+                      <li class="zoom">
+                        <h3 class="heading">Final Submission</h3>
+                        <p>Refinement and project submission.</p>
+                        <span class="date">8:00 AM</span>
+                        <span class="circle"></span>
+                    </li>
+                    <li class="zoom">
+                      <h3 class="heading">Conclusion</h3>
+                      <p>Hackathon officially ends.</p>
+                      <span class="date">1:00 PM</span>
+                      <span class="circle"></span>
+                  </li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+    
+        <hr>
+    
+        <section class="domains">
+          <h2>DOMAINS</h2>
+          <div class="grid-container">
+              <div class="domain-box">IOT & Embedded Systems</div>
+              <div class="domain-box">AI & ML</div>
+              <div class="domain-box">WEB / APP Development</div>
+              <div class="domain-box">FINTECH / LEGAL TECH</div>
+              <div class="domain-box">GAME TECH</div>
+              <div class="domain-box">CYBERSECURITY / BLOCKCHAIN</div>
+          </div>
+      </section>
+    
+      <div class="prize_container">
+        <div class="prize_card">
+            <!-- Trophy Icon -->
+            <div class="prize_icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <!-- Prize Title with Target Icon -->
+            <div class="prize_title">
+                <span>Prize Pool</span>
+            </div>
+            <!-- Prize Amount -->
+            <div class="prize_amount">
+                <span>₹ 100,000</span>
+            </div>
+            <!-- Description -->
+            <p class="prize_desc">(Cash Prizes + Goodies)</p>
+        </div>
+      </div>
+    
+    
+      </section>
+
+      <footer id="footer">
+        <div class="f-info">
+          <div class="f-info-socials">
+            <a href="https://www.linkedin.com/company/iete-kjsieit/mycompany/"><img src="./assets/linkedin.png"
+                alt="linkedin" /></a>
+            <a href="https://www.instagram.com/iete_kjsit/"><img src="./assets/instagram.png" alt="instagram" /></a>
+          </div>
+          <div class="f-info-brand">
+            <h3>
+              Made with <span style="color: red">&#10084;</span> By IETE Technical
+              Team <span>&copy;</span> 2025-26
+            </h3>
+          </div>
+        </div>
+      </footer>
+
+</body>
+<script src="./js/timer.js"></script>
+<script src="./js/navbar.js"></script>
+</html>

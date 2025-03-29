@@ -1,0 +1,285 @@
+@font-face {
+    font-family: 'Audiowide';
+    src: url('../fonts/audiowide.ttf') format('truetype');
+  }
+  
+  ::-webkit-scrollbar {
+    background: white;
+    width: 5px;
+    height: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #3c3f58;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  
+  body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(0deg, #000f1e, #001e3d, #158bcb, #001e3d, #000f1e);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* height: 1005vh; */
+    height: auto;
+    color: #143c64;
+    font-family: 'Audiowide';
+  }
+  
+  .tenure-nav-row {
+    display: block;
+  }
+  
+  .tenure-select {
+    width: 150px;
+    margin: 20px 20px 20px auto;
+    display: block;
+    position: relative;
+  }
+  
+  .tenure-select button {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    font-family: 'Audiowide';
+    font-size: 1rem;
+    /* border: 2px solid greenyellow; */
+  }
+  
+  .tenure-dropdown {
+    display: none;
+    /* width: 150px; */
+    width: inherit;
+    background-color: aliceblue;
+    /* border: 2px solid rgb(255, 0, 0); */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    font-size: 1rem;
+  }
+  
+  .tenure-select:hover .tenure-dropdown {
+    display: block;
+  }
+  
+  .tenure-dropdown a {
+    display: block;
+    padding: 8px 0px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+  }
+  
+  .tenure-dropdown a:hover {
+    background-color: #000f1e;
+    color: aliceblue;
+    border: 1px solid white;
+  }
+  
+  .title-box {
+    height: 5rem;
+    color: transparent;
+    font-size: 3rem;
+    -webkit-text-stroke: 2px white;
+    text-align: center;
+    transition: 0.5s;
+    margin: 6vh auto;
+    cursor: default;
+  }
+  
+  .title-box:hover {
+    color: white;
+    font-size: 4rem;
+  }
+  
+  .core-row,
+  .sub-core-row {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    /* border: 2px solid aquamarine; */
+  }
+  
+  
+  .card {
+    position: relative;
+    width: 225px;
+    height: 225px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 22px #3336;
+    transition: .6s;
+  }
+  
+  .card:hover {
+    border-radius: 20px;
+    /* height: 200px; */
+  }
+  
+  .profile-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+    z-index: 1;
+  }
+  
+  .profile-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: 0.5s;
+    object-fit: cover;
+  }
+  
+  .card:hover .profile-image {
+    transform: translateY(-75px);
+  }
+  
+  .card:hover img {
+    border-radius: 20px;
+  }
+  
+  .caption {
+    text-align: center;
+    transform: translateY(-60px);
+    opacity: 0;
+    transition: 0.5s;
+  }
+  
+  .name,
+  .position {
+    display: block;
+    width: fit-content;
+    margin: 6px auto;
+    /* text-align: center; */
+  }
+  
+  .card:hover .caption {
+    opacity: 1;
+  }
+  
+  @media (max-width: 400px) {
+  
+    .core-title,
+    .sub-core-title {
+      font-size: 1.5rem;
+      color: white;
+      margin-top: 10vh;
+    }
+  
+    .core-title:hover,
+    .sub-core-title:hover {
+      font-size: 1.5rem;
+      color: white;
+    }
+  
+    .core-row,
+    .sub-core-row {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    #super-core,
+    #domain-lead,
+    #joint-lead,
+    #admins {
+      margin: 0px auto;
+    }
+  
+    .card {
+      margin: 8vh auto;
+    }
+  }
+  
+  @media (max-width: 600px) and (min-width: 401px) {
+  
+    .core-title,
+    .sub-core-title {
+      font-size: 1.6rem;
+      color: white;
+      margin-top: 12vh;
+    }
+  
+    .core-title:hover,
+    .sub-core-title:hover {
+      font-size: 1.6rem;
+      color: white;
+    }
+  
+    .core-row,
+    .sub-core-row {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    #super-core,
+    #domain-lead,
+    #joint-lead,
+    #admins {
+      margin: 0px auto;
+    }
+  
+    .card {
+      margin: 6vh auto;
+      width: 250px;
+      height: 250px;
+    }
+  
+    .card:hover {
+      border-radius: 20px;
+    }
+  
+  }
+  
+  @media (min-width: 601px) and (max-width: 1000px) {
+  
+    .core-title,
+    .sub-core-title {
+      font-size: 2rem;
+      color: white;
+      margin-top: 8vh;
+      margin-bottom: 0vh;
+    }
+  
+    .core-title:hover,
+    .sub-core-title:hover {
+      font-size: 2rem;
+      color: white;
+    }
+  
+    .core-row,
+    .sub-core-row {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    #super-core,
+    #domain-lead,
+    #joint-lead,
+    #admins {
+      margin: 0px auto;
+    }
+  
+    .card {
+      margin: 6vh auto;
+      width: 275px;
+      height: 275px;
+    }
+  }
+  
+  @media (min-width: 1001px) and (max-width: 1300px) {
+    .card {
+      width: 175px;
+      height: 175px;
+    }
+  }

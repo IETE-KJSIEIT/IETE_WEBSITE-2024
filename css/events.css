@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+
+body {
+  font-family: "Audiowide", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: white;
+  background: linear-gradient(
+    180deg,
+    #020817 10%,
+    #041c3a 40%,
+    #0a3b75 70%,
+    #020817 100%
+  );
+  background-size: cover;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 0.3rem;
+  height: 0.3rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #3c3f58;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.events {
+  text-align: center;
+  padding: 1.25rem;
+}
+
+.events h1 {
+  font-size: 3rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.events h2 {
+  font-size: 2rem;
+  margin-top: 1.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.title-box {
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+  transition: 0.5s;
+}
+
+.event-grid {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(2, 1fr)); */
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.25rem;
+  justify-items: center;
+  padding: 1.25rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 1320px) {
+  .event-grid {
+    grid-template-columns: repeat(3, 1fr); /* Creating a 3-column grid */
+    grid-auto-flow: dense; /* Let grid items fill available spaces */
+  }
+
+  .event-card:nth-child(4) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+}
+
+@media (max-width: 1000px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.event-card {
+  position: relative;
+  width: 25rem;
+  height: 25rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 0.3rem solid aliceblue;
+  /* transition: transform 0.6s; */
+  transition: transform 0.6s, box-shadow 0.6s, border-color 0.6s;
+  transition: background 0.6s;
+}
+.event-card:hover {
+  transform: translateY(-10px);
+  border-color: #158bcb;
+  background: linear-gradient(45deg, #000f1e, #001e3d);
+  /* box-shadow: 0 15px 30px rgba(21, 139, 203, 0.5); */
+}
+.event-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: filter 0.6s;
+}
+
+.event-card:hover img {
+  filter: blur(0.5rem);
+}
+
+.event-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateY(100%);
+  opacity: 0;
+  color: aliceblue;
+  text-align: center;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.event-card:hover .event-info {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.event-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.event-info p {
+  margin: 0.3rem 0;
+}
+
+.register-btn {
+  font-family: "Audiowide", sans-serif;
+  /* padding: 0.625rem 1.25rem;
+  border: none;
+  background-color: aliceblue;
+  color: black;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  font-size: 1rem; */
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: 0.3rem solid #158bcb;
+  background: linear-gradient(45deg, #000f1e, #001e3d);
+  color: aliceblue;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.register-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #158bcb;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+.register-btn:hover {
+  /* background-color: rgb(185, 215, 250); */
+  background-color: #158bcb;
+  border-color: #001e3d;
+  /* box-shadow: 0 7px 15px rgba(21, 139, 203, 0.4); */
+  transform: translateY(-3px);
+}
+.register-btn:hover::before {
+  width: 100%;
+}
+.register-btn:active {
+  /* box-shadow: 0 3px 8px rgba(21, 139, 203, 0.4); */
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .event-card {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .event-card img {
+    border-radius: 0.75rem;
+  }
+
+  .event-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .register-btn {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .event-card {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .event-card img {
+    border-radius: 0.65rem;
+  }
+
+  .event-info h3 {
+    font-size: 1rem;
+  }
+
+  .register-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+.tech-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 1000px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+}
