@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(180deg, #020817 10%, #041C3A 40%, #0A3B75 70%, #020817 100%);
+  background: linear-gradient(180deg, #000f1e 10%, #158bcb 40%, #001e3d 70%, #020817 100%);
   background-size: cover;
   font-family: 'Audiowide', sans-serif;
   color: white;
@@ -33,7 +33,7 @@ body {
 }
 
 .main {
-  background: #000307;
+  /* background: #000307; */
   height: 92vh;
   width: 100%;
   display: flex;
@@ -69,7 +69,7 @@ body {
   /* Adjust width to be relative to ripplegui */
   height: auto;
   /* Maintain aspect ratio */
-  max-width: 600px;
+  max-width: 800px;
   /* Limit max size */
 }
 
@@ -104,7 +104,7 @@ body {
   .gif-text {
     width: 40%;
     /* Adjust text image for smaller screens */
-    max-width: 450px;
+    max-width: 550px;
     /* Prevent .gif-text from getting too large */
   }
 }
