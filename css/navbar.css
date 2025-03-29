@@ -2,9 +2,13 @@
   height: 5rem;
   position: sticky;
   top: 0;
-  background-color: #000f1e;
+  background-color: rgba(0, 15, 30, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 0.625rem 1.25rem;
   z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 .navbar .nav-container {
@@ -12,6 +16,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .navbar .nav-logo img {
@@ -20,12 +27,18 @@
   margin-top: 6px;
   margin-left: 1rem;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.navbar .nav-logo img:hover {
+  transform: scale(1.05);
 }
 
 .navbar .nav-links {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
+  margin-right: 1rem;
 }
 
 .navbar .nav-links li {
@@ -33,39 +46,46 @@
 }
 
 .navbar .nav-links li a {
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 1.3rem;
-  margin-right: 1rem;
   position: relative;
   display: inline-block;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
 .navbar .nav-links li a:hover {
-  color: #158bcb;
-  transform: scale(1.1);
+  color: #00CCFF;
+  transform: translateY(-2px);
+  text-shadow: 0 0 8px rgba(0, 204, 255, 0.5);
 }
 
 .nav-links a::after {
   content: '';
   position: absolute;
-  left: 20%;
-  bottom: -5px;
+  left: 0;
+  bottom: 0;
   width: 0;
   height: 2px;
-  background-color: #158bcb;
-  transition: width 1s ease;
+  background: linear-gradient(90deg, #00CCFF, #00FF66);
+  transition: width 0.4s ease;
+  border-radius: 2px;
 }
 
 .nav-links a:hover::after {
-  width: 60%;
+  width: 100%;
 }
 
 .hamburger {
   display: none;
-  font-size: 2rem;
   cursor: pointer;
   color: #fff;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  z-index: 1001;
 }
 
 .line {
@@ -73,45 +93,83 @@
   width: 30px;
   height: 3px;
   background-color: white;
-  margin: 5px auto;
+  margin: 6px auto;
   transition: all 0.3s ease;
+  border-radius: 3px;
 }
 
 @media (max-width: 800px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  
   .nav-links {
-      display: none !important;
-      flex-direction: column;
-      position: absolute;
-      top: 5rem;
-      right: 0;
-      background-color: #000f1e;
-      width: 100%;
-      padding: 0.5rem 0 2rem 0;
-      text-align: center;
-      gap: 1.5rem;
+    display: none !important;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: rgba(0, 15, 30, 0.95);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100vh;
+    padding: 6rem 2rem 2rem 2rem;
+    text-align: center;
+    gap: 2rem;
+    transition: right 0.5s ease;
+    align-items: center;
+    justify-content: center;
   }
 
   .hamburger {
-      display: block;
+    display: block;
+    position: relative;
+    z-index: 1002;
   }
 
   .nav-links.active {
-      display: flex !important;
+    display: flex !important;
+    right: 0;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
   }
 
   .nav-links li a {
-      font-size: 1.5rem;
+    font-size: 1.6rem;
+    padding: 0.8rem 1.5rem;
+    display: inline-block;
+    border-radius: 30px;
+  }
+  
+  .nav-links li a:hover {
+    background: rgba(21, 139, 203, 0.1);
+  }
+
+  .nav-links a::after {
+    display: none;
   }
 
   .nav-links.active + .hamburger #line1 {
-      transform: rotate(45deg) translate(7px, 7px) !important;
+    transform: rotate(45deg) translate(7px, 7px) !important;
   }
 
   .nav-links.active + .hamburger #line2 {
-      opacity: 0 !important;
+    opacity: 0 !important;
   }
 
   .nav-links.active + .hamburger #line3 {
-      transform: rotate(-45deg) translate(7px, -7px) !important;
+    transform: rotate(-45deg) translate(7px, -7px) !important;
+  }
+  
+  /* Animation for menu items */
+  .nav-links li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+  }
+  
+  .nav-links.active li {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(0.1s * var(--i));
   }
 }

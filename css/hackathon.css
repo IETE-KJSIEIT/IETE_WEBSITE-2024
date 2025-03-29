@@ -178,11 +178,10 @@ body {
 
 /* Timer Section Style Starts */
 
-
 .timer-section {
   width: 60%;
   height: 160px;
-  margin: auto;
+  margin: 3rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -219,6 +218,118 @@ body {
 }
 
 /* Timer Section Style Ends */
+
+/* Horizontal Rule Styling */
+hr {
+  margin: 3rem 0; /* Add more vertical spacing around horizontal rules */
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 204, 255, 0), rgba(0, 204, 255, 0.75), rgba(0, 204, 255, 0));
+}
+
+/* -----------Prize Styling----------- */
+/* Prize Container */
+.prize_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 2rem; /* Add top margin for more space */
+  margin-bottom: 3rem; /* Add bottom margin for more space */
+}
+
+/* Prize Card (Bigger & Responsive) */
+.prize_card {
+  background: linear-gradient(to bottom, #0e2954, #153464);
+  padding: 50px 80px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: 'Space Mono', monospace;
+  width: 100%;
+}
+
+/* Large Trophy Icon */
+.prize_icon {
+  font-size: 5rem;
+  color: #FFD700;
+  margin-bottom: 20px;
+}
+
+/* Title Section with Target Icon */
+.prize_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.prize_title i {
+  font-size: 2rem;
+  margin-right: 15px;
+  color: #FF4500;
+}
+
+/* Prize Amount */
+.prize_amount {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #FFD700;
+  margin: 30px 0;
+}
+
+/* Description */
+.prize_desc {
+  font-size: 1.5rem;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .prize_card {
+      padding: 40px;
+      max-width: 90%;
+  }
+  .prize_icon {
+      font-size: 4rem;
+  }
+  .prize_title {
+      font-size: 2rem;
+  }
+  .prize_title i {
+      font-size: 1.5rem;
+  }
+  .prize_amount {
+      font-size: 3rem;
+  }
+  .prize_desc {
+      font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prize_card {
+      padding: 30px;
+  }
+  .prize_icon {
+      font-size: 3rem;
+  }
+  .prize_title {
+      font-size: 1.5rem;
+  }
+  .prize_title i {
+      font-size: 1.2rem;
+  }
+  .prize_amount {
+      font-size: 2.5rem;
+  }
+  .prize_desc {
+      font-size: 1rem;
+  }
+}
 
 /* Responsive Style Starts */
 
@@ -269,13 +380,22 @@ body {
 
   .timer-section {
     width: 100%;
-    margin: 16px auto;
+    margin: 2rem auto; /* Added proper vertical margins */
     height: fit-content;
   }
 
   .timer-section > * {
     padding: 12px 8px;
     border: none;
+  }
+
+  hr {
+    margin: 2.5rem 0; /* Slightly reduced margin for mobile but still maintains good spacing */
+  }
+
+  .prize_container {
+    margin-top: 1.5rem; /* Adjusted for mobile */
+    margin-bottom: 2.5rem; /* Adjusted for mobile */
   }
 
   .count-section {
@@ -528,7 +648,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 body {
@@ -541,6 +660,7 @@ body {
 }
 
 .navbar {
+  width: 100%;
   height: 100px !important;
 }
 
@@ -699,6 +819,7 @@ body {
   top: 0;
   transform: translateX(-50%);
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.767), rgba(3, 97, 100, 0.747));
+  z-index: 1; /* Ensure the line is visible behind circles */
 }
 
 .container ul li {
@@ -708,11 +829,15 @@ body {
   border-radius: 8px;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.218);
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 50px; /* Increased from 30px for more consistent spacing */
 }
 
 .container ul li:nth-child(4) {
-  margin-bottom: 0;
+  margin-bottom: 50px; /* Consistent with other cards now */
+}
+
+.container ul li:last-child {
+  margin-bottom: 20px; /* Less space at the bottom of the list */
 }
 
 .container ul li .circle {
@@ -721,11 +846,14 @@ body {
   height: 20px;
   border-radius: 50%;
   background-color: #00ff66;
-  top: 0;
+  top: 50%; /* Changed from 'top: 0' to center vertically */
   display: grid;
   place-items: center;
   box-shadow: 0px 0px 5px #00FF66, 0px 0px 10px #00FF66; /* Neon Glow */
   animation: pulseGlow 1.5s infinite alternate ease-in-out;
+  transform: translateY(-50%); /* Added to ensure perfect vertical centering */
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+  z-index: 2; /* Ensure the circles appear above the line */
 }
 
 .circle::after {
@@ -749,17 +877,38 @@ body {
     }
 }
 
-ul li:nth-child(odd) .circle {
-  right: -30px;
-  transform: translate(50%, -50%);
+/* Add spacing to the odd items (left side) */
+.container ul li:nth-child(odd) {
+  float: left;
+  clear: right;
+  margin-right: 15px; /* Add space to the right of the card */
 }
 
-ul li:nth-child(even) .circle {
-  left: -30px;
-  transform: translate(-50%, -50%);
+/* Circle positioning for odd items */
+.container ul li:nth-child(odd) .circle {
+  right: -31px; /* Adjusted by 1px for perfect alignment */
+  transform: translate(50%, -50%); /* Keep 50% horizontal translation to center on the line */
 }
 
-ul li .date {
+/* Date positioning for odd items */
+.container ul li:nth-child(odd) .date {
+  right: 20px;
+}
+
+/* Add spacing to the even items (right side) */
+.container ul li:nth-child(even) {
+  float: right;
+  clear: left;
+  margin-left: 15px; /* Add space to the left of the card */
+}
+
+/* Circle positioning for even items */
+.container ul li:nth-child(even) .circle {
+  left: -31px; /* Adjusted by 1px for perfect alignment */
+  transform: translate(-50%, -50%); /* Keep -50% horizontal translation to center on the line */
+}
+
+.container ul li .date {
   position: absolute;
   width: 130px;
   height: 33px;
@@ -773,21 +922,7 @@ ul li .date {
   box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.318);
 }
 
-.container ul li:nth-child(odd) {
-  float: left;
-  clear: right;
-}
-
-ul li:nth-child(odd) .date {
-  right: 20px;
-}
-
-.container ul li:nth-child(even) {
-  float: right;
-  clear: left;
-}
-
-ul li .heading {
+.container ul li .heading {
   font-size: 17px;
   color: rgb(91, 14, 216);
   cursor: pointer;
@@ -830,29 +965,26 @@ ul li a {
 
   .container ul::after {
     left: -40px;
+    transform: none; /* Remove transform since position is absolute */
   }
 
   .container ul li {
     width: 100%;
     float: none;
-    margin-bottom: 80px;
+    margin-bottom: 60px; /* Increased for more spacing */
+    margin-left: 0; /* Reset any horizontal margins */
+    margin-right: 0; /* Reset any horizontal margins */
     cursor: pointer;
   }
 
   .container ul li .circle {
     left: -40px;
-    transform: translate(-50%, -50%);
-  }
-
-  .container ul li .circle {
-    left: -40px;
-    transform: translate(-50%, -50%);
+    transform: translate(0, -50%); /* Align directly on the timeline */
     transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
   }
 
   .container ul li:hover .container ul li {
-    transform: translate(-50%, -50%) scale(1.2);
-
+    transform: translate(0, -50%) scale(1.2);
   }
 
   .container ul li .date {
@@ -862,10 +994,25 @@ ul li a {
   .container ul li:nth-child(odd) {
     transform: translateX(0px);
     text-align: left;
+    margin-right: 0; /* Reset margin */
   }
 
   .container ul li:nth-child(even) {
     transform: translateX(0px);
+    margin-left: 0; /* Reset margin */
+  }
+
+  /* Reset specific positioning for circles in mobile view */
+  .container ul li:nth-child(odd) .circle,
+  .container ul li:nth-child(even) .circle {
+    left: -40px;
+    right: auto;
+    transform: translate(0, -50%);
+  }
+
+  /* Keep last item spacing consistent */
+  .container ul li:last-child {
+    margin-bottom: 30px;
   }
 
   .ripplegui {
@@ -874,7 +1021,6 @@ ul li a {
   }
 }
 
-
 @media only screen and (max-width: 550px) {
   .container {
     width: 80%;
@@ -882,10 +1028,24 @@ ul li a {
 
   .container ul::after {
     left: -20px;
+    transform: none; /* Remove transform since position is absolute */
+  }
+
+  .container ul li {
+    margin-bottom: 50px; /* Slightly less spacing on smaller screens */
   }
 
   .container ul li .circle {
     left: -20px;
+    transform: translate(0, -50%); /* Align directly on the timeline */
+  }
+
+  /* Reset specific positioning for circles in mobile view */
+  .container ul li:nth-child(odd) .circle,
+  .container ul li:nth-child(even) .circle {
+    left: -20px;
+    right: auto;
+    transform: translate(0, -50%);
   }
 }
 
@@ -949,6 +1109,7 @@ ul li a {
 .domains {
     padding: 50px 20px;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 /* Title */
@@ -957,155 +1118,165 @@ ul li a {
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 700;
-    margin-bottom: 30px;
-    color: #ffffff;
-    font-family: 'Space Mono', monospace;
+    margin-bottom: 40px;
+    color: #00CCFF;
+    font-family: 'Audiowide', sans-serif;
+    position: relative;
+}
+
+/* Title underline - matches the timeline heading style */
+.domains h2::after {
+    content: " ";
+    position: absolute;
+    width: 150px;
+    height: 3px;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    background-image: linear-gradient(to right, #00CCFF, #00FF66);
 }
 
 /* Grid Layout */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1000px;
+    gap: 25px;
+    max-width: 1100px;
     margin: auto;
+}
+
+/* Apply different animation delays to create a staggered effect */
+.grid-container .domain-box:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.grid-container .domain-box:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.grid-container .domain-box:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.grid-container .domain-box:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.grid-container .domain-box:nth-child(5) {
+    animation-delay: 2s;
+}
+
+.grid-container .domain-box:nth-child(6) {
+    animation-delay: 2.5s;
 }
 
 /* Domain Box */
 .domain-box {
-    background-color: #1a1a2e;
-    padding: 20px;
+    background: linear-gradient(135deg, #001e3d, #0e2954);
+    padding: 25px 20px;
     font-size: 1.2rem;
     font-weight: 700;
-    border-radius: 8px;
+    border-radius: 12px;
     text-transform: uppercase;
     text-align: center;
-    font-family: 'Space Mono', monospace;
-    transition: transform 0.3s, background-color 0.3s;
-    border: 1px solid #ffffff;
+    font-family: 'Audiowide', sans-serif;
+    transition: all 0.4s ease;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    animation: domainPulse 3s infinite alternate;
+    
+    /* Perfect centering styles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px; /* Set a consistent height */
+    line-height: 1.4; /* Improve line spacing for multi-line text */
+    word-wrap: break-word; /* Ensure text wraps properly */
+    padding: 20px; /* Consistent padding all around */
+    letter-spacing: 0.5px; /* Slightly improve letter spacing for readability */
+    hyphens: auto; /* Allow hyphenation for better text wrapping */
 }
 
-/* Hover Effect */
+/* For domain names with many words that need to wrap */
+.domain-box span {
+    display: inline-block; /* Better text wrapping */
+    width: 100%;
+}
+
+/* Pulse animation for domain boxes */
+@keyframes domainPulse {
+    0% {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    100% {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 
+                    0 0 8px rgba(0, 204, 255, 0.2);
+        border-color: rgba(0, 204, 255, 0.2);
+    }
+}
+
+/* Domain Box hover effect */
 .domain-box:hover {
-    transform: translateY(-5px);
-    background-color: #16213e;
+    transform: translateY(-7px);
+    border-color: rgba(0, 204, 255, 0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 
+                0 0 15px rgba(0, 204, 255, 0.3);
+    animation: none; /* Stop the pulse animation on hover */
+}
+
+/* Glow effect on hover */
+.domain-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+                rgba(0, 204, 255, 0.1) 0%,
+                rgba(0, 255, 102, 0.05) 100%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+.domain-box:hover::before {
+    opacity: 1;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 700px;
+    }
+    
+    .domain-box {
+        padding: 20px 15px;
+        font-size: 1.1rem;
+        min-height: 100px; /* Slightly shorter on tablets */
     }
 }
 
 @media (max-width: 600px) {
     .grid-container {
         grid-template-columns: 1fr;
+        max-width: 350px;
     }
+    
     .domains h2 {
         font-size: 1.8rem;
     }
-}
-
-
-/* -----------Prize Styling----------- */
-/* Prize Container */
-.prize_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-/* Prize Card (Bigger & Responsive) */
-.prize_card {
-  background: linear-gradient(to bottom, #0e2954, #153464);
-  padding: 50px 80px;
-  border-radius: 15px;
-  text-align: center;
-  max-width: 600px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  color: white;
-  font-family: 'Space Mono', monospace;
-  width: 100%;
-}
-
-/* Large Trophy Icon */
-.prize_icon {
-  font-size: 5rem;
-  color: #FFD700;
-  margin-bottom: 20px;
-}
-
-/* Title Section with Target Icon */
-.prize_title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.prize_title i {
-  font-size: 2rem;
-  margin-right: 15px;
-  color: #FF4500;
-}
-
-/* Prize Amount */
-.prize_amount {
-  font-size: 4rem;
-  font-weight: bold;
-  color: #FFD700;
-  margin: 30px 0;
-}
-
-/* Description */
-.prize_desc {
-  font-size: 1.5rem;
-  opacity: 0.9;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .prize_card {
-      padding: 40px;
-      max-width: 90%;
-  }
-  .prize_icon {
-      font-size: 4rem;
-  }
-  .prize_title {
-      font-size: 2rem;
-  }
-  .prize_title i {
-      font-size: 1.5rem;
-  }
-  .prize_amount {
-      font-size: 3rem;
-  }
-  .prize_desc {
-      font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .prize_card {
-      padding: 30px;
-  }
-  .prize_icon {
-      font-size: 3rem;
-  }
-  .prize_title {
-      font-size: 1.5rem;
-  }
-  .prize_title i {
-      font-size: 1.2rem;
-  }
-  .prize_amount {
-      font-size: 2.5rem;
-  }
-  .prize_desc {
-      font-size: 1rem;
-  }
+    
+    .domain-box {
+        padding: 18px 15px;
+        font-size: 1rem;
+        min-height: 90px; /* Slightly shorter on phones */
+    }
 }
